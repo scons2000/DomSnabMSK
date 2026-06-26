@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДомСнаб — Главный инженер вашего дома</title>
+    <meta name="description" content="Бесплатный аудит инженерных систем дома. Водоснабжение, фильтры, септик, электрика, отопление.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-wrap" style="gap: 20px;">
+            <div style="display: flex; flex-direction: column; max-width: 50%;">
+                <a href="#" class="logo">Дом<span>Снаб</span></a>
+                <p id="cms-header-desc" style="font-size: 11px; line-height: 1.3; color: var(--text-muted); margin-top: 4px;"></p>
+            </div>
+            <div class="header-contacts">
+                <a href="#" id="cms-phone-header" class="phone-link"></a>
+                <div class="social-icons">
+                    <a href="#" id="cms-wa-header" class="social-icon icon-wa" target="_blank">WA</a>
+                    <a href="#" id="cms-tg-header" class="social-icon icon-tg" target="_blank">TG</a>
+                </div>
+                <a href="#order-form" class="btn">Записаться на аудит</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 id="cms-hero-title"></h1>
+            <p id="cms-hero-desc"></p>
+            <div class="hero-buttons">
+                <a href="#quiz" class="btn">Найти скрытые поломки в доме</a>
+                <a href="#order-form" class="btn btn-secondary">Заказать аудит</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-grey">
+        <div class="container">
+            <h2>С какими скрытыми угрозами сталкиваются владельцы домов?</h2>
+            <div class="grid-4" id="cms-problems-container"></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Что входит в бесплатный комплексный аудит</h2>
+            <div class="grid-3" id="cms-audit-container"></div>
+            <div class="audit-result-banner">
+                Результат: Вы получаете персональные рекомендации по вашему дому и чек-лист сезонного обслуживания.
+            </div>
+        </div>
+    </section>
+
+    <!-- Цифровой паспорт дома (Перепозиционирован) -->
+    <section class="bg-grey">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; wrap: wrap; margin-bottom: 30px;">
+                <div style="max-width: 650px;">
+                    <span style="background: var(--primary-bg); color: #fff; padding: 4px 10px; font-size: 12px; font-weight: bold; border-radius: 3px; text-transform: uppercase; letter-spacing: 1px;">Новая услуга</span>
+                    <h2 style="margin-top: 10px; margin-bottom: 15px;">Инженерный цифровой паспорт вашего дома</h2>
+                    <p style="color: var(--text-muted); line-height: 1.6;">
+                        Это не просто папка с файлами, а создаваемая вручную интерактивная экосистема вашей усадьбы. Инженер проводит полную ревизию, маркирует узлы, оцифровывает схемы и создаёт единую панель управления техническим состоянием дома в вашем смартфоне. Серьёзный подход к вашей безопасности и капитализации недвижимости.
+                    </p>
+                </div>
+                <div style="margin-top: 30px;">
+                    <a href="#order-form" class="btn" style="background-color: transparent; border: 2px solid var(--primary-bg); color: var(--primary-bg);" onclick="document.getElementById('comment').value='Интересует стоимость создания Цифрового паспорта дома.'">Узнать стоимость паспорта</a>
+                </div>
+            </div>
+            
+            <div class="grid-5">
+                <div class="passport-card" style="border-top: 3px solid var(--primary-bg);"><span class="emoji">🔍</span><p><strong>Ревизия и фотофиксация</strong> скрытых узлов и оборудования</p></div>
+                <div class="passport-card" style="border-top: 3px solid var(--primary-bg);"><span class="emoji">📐</span><p><strong>Оцифровка схем</strong> и ведение исполнительной документации</p></div>
+                <div class="passport-card" style="border-top: 3px solid var(--primary-bg);"><span class="emoji">📊</span><p><strong>Инвентаризация</strong> точных моделей приборов и расходников</p></div>
+                <div class="passport-card" style="border-top: 3px solid var(--primary-bg);"><span class="emoji">📅</span><p><strong>Календарь ТО</strong> с автоматическими напоминаниями о заменах</p></div>
+                <div class="passport-card" style="border-top: 3px solid var(--primary-bg);"><span class="emoji">🛡️</span><p><strong>План аварийных действий</strong> для членов семьи и экстренных служб</p></div>
+            </div>
+            
+            <p class="amplifier-text" style="margin-top: 30px;">
+                💡 <strong>Честный подход:</strong> Создание точного паспорта требует высокой квалификации и трудозатрат. При заказе стартового аудита инженер бесплатно составит для вас базовую спецификацию оборудования, а полную стоимость паспортизации рассчитает на месте под задачи вашей усадьбы.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Почему ваши соседи доверяют «ДомСнаб»</h2>
+            <div class="grid-6">
+                <div class="trust-card"><span class="emoji">🏡</span><p>Живём рядом в районе — приедем оперативно</p></div>
+                <div class="trust-card"><span class="emoji">🤝</span><p>Ничего не навязываем и не продаем дорогой ремонт</p></div>
+                <div class="trust-card"><span class="emoji">💯</span><p>Работаем честно, как для своих соседей</p></div>
+                <div class="trust-card"><span class="emoji">📋</span><p>Хранить техническую историю каждого дома</p></div>
+                <div class="trust-card"><span class="emoji">⚙️</span><p>Предупреждаем о плановых заменах заранее</p></div>
+                <div class="trust-card"><span class="emoji">🚀</span><p>Организуем доставку нужных расходников</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz" class="bg-grey">
+        <div class="container">
+            <h2>Проверьте готовность дома к неожиданностям за 2 минуты</h2>
+            <div class="quiz-container">
+                <div class="quiz-progress">
+                    <div class="progress-text">
+                        <span id="progress-step-label">Загрузка вопросов...</span>
+                        <span id="progress-percent">0%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+
+                <form id="quizForm" onsubmit="return false;">
+                    <div id="dynamic-questions-container"></div>
+
+                    <div class="quiz-step" id="quiz-result-step">
+                        <div class="quiz-result-box">
+                            <div id="result-status-title" class="result-status">Анализ ответов...</div>
+                            <p id="result-status-desc" class="result-text"></p>
+                            <div class="quiz-lead-magnet">
+                                🎁 Бонус за прохождение: Мы закрепили за вашим номером чек-лист «25 пунктов сезонного обслуживания частного дома».
+                            </div>
+                            <a href="#order-form" class="btn" id="result-action-btn">Получить персональный разбор</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-navigation" id="quiz-nav-actions">
+                        <button type="button" class="btn btn-nav" id="btn-back" disabled>Назад</button>
+                        <button type="button" class="btn" id="btn-next">Далее</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="gifts-section" style="background-color: #FFFDF5; border-top: 1px solid #FFE4C4; border-bottom: 1px solid #FFE4C4; padding: 60px 0;">
+        <div class="container" style="max-width: 650px;">
+            <h2 id="cms-gifts-deadline" style="color: #111827 !important; text-align: center; margin-bottom: 15px; font-size: 26px;">
+                Запишитесь на бесплатный аудит до 30 июля и получите подарки:
+            </h2>
+            
+            <p style="text-align: center; color: #4B5563; margin-bottom: 30px; font-size: 15px; line-height: 1.5;">
+                📋 <strong>Пошаговый чек-лист ТО</strong> гарантирован каждому дому.<br>
+                Кликните на <strong>1 дополнительный подарок на ваш выбор</strong> ниже, чтобы инженер взял его со склада:
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px;">
+                
+                <div style="background: #F0FDF4; padding: 15px 20px; border-radius: 8px; border: 1px solid #BBF7D0; display: flex; align-items: center; gap: 15px;">
+                    <span style="font-size: 24px;">📋</span>
+                    <div style="flex-grow: 1;">
+                        <strong style="color: #166534; display: block;">Пошаговый чек-лист «25 важнейших точек сезонного обслуживания»</strong>
+                        <span style="font-size: 13px; color: #166534; opacity: 0.8;">Предоставляется в электронном виде при оформлении заявки</span>
+                    </div>
+                    <span style="color: #166534; font-weight: bold; font-size: 14px;">✓ Гарантировано</span>
+                </div>
+
+                <div id="vertical-gifts-list" style="display: flex; flex-direction: column; gap: 10px;"></div>
+            </div>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="#order-form" class="btn" style="width: 100%; max-width: 400px; display: inline-block; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(247, 148, 29, 0.4);">
+                    Перейти к оформлению заявки
+                </a>
+                <p id="cms-gifts-counter" style="margin-top: 12px; font-size: 13px; color: #6B7280; font-weight: normal;"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="order-form" class="main-form-section">
+        <div class="container">
+            <div class="form-map-wrap">
+                <div class="form-side">
+                    <h3 id="cms-form-title"></h3>
+                    <form id="leadForm" onsubmit="handleFormSubmit(event)">
+                        <input type="hidden" id="hidden_quiz_results" name="quiz_summary" value="Тест не пройден">
+                        <input type="hidden" id="hidden_chosen_gifts" name="selected_gifts" value="Чек-лист ТО">
+                        <div class="form-group">
+                            <label for="username">Ваше имя</label>
+                            <input type="text" id="username" class="form-control" placeholder="Например: Евгений" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userphone">Номер телефона</label>
+                            <input type="tel" id="userphone" class="form-control" placeholder="+7 (926) 000-00-00" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Ваш населённый пункт</label>
+                            <select id="location" class="form-control" required>
+                                <option value="" disabled selected>Выберите посёлок</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Комментарий (необязательно)</label>
+                            <textarea id="comment" class="form-control" rows="2" placeholder="Удобное время для звонка или детали поломки"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" required checked> Я соглашаюсь на обработку персональных данных
+                            </label>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Пригласить главного инженера</button>
+                    </form>
+                </div>
+
+                <div class="map-side">
+                    <div>
+                        <h3>Зона оперативного обслуживания</h3>
+                       <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad26d79acc9861d53fc54d1edb081419be432c61a0ac6d1ec0915da07075d2eac&amp;source=constructor" width="500" height="500" frameborder="0"></iframe>
+                    </div>
+                    <div class="map-info-text">
+                        🚘 Мы находимся рядом с вами. Специалист приедет со всеми инструментами в назначенное время.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-wrap" style="flex-direction: column; align-items: flex-start; gap: 15px;">
+            <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px;">
+                <div>
+                    <p style="font-weight: bold; color: #FFFFFF; font-size: 18px; margin-bottom: 5px;">ДомСнаб</p>
+                    <p>© 2026 Проект ДомСнаб. Все права защищены.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#" id="cms-phone-footer"></a>
+                    <a href="#">Политика конфиденциальности</a>
+                </div>
+            </div>
+            <p id="cms-footer-desc" style="font-size: 12px; color: #A0AEC0; max-width: 80%; line-height: 1.4;"></p>
+        </div>
+    </footer>
+
+    <script src="cms-config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
