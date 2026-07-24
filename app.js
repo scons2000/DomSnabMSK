@@ -377,9 +377,9 @@ function handleLMSubmit(event) {
             <p style="font-size: 14px; color: #4B5563; margin-bottom: 20px;">
                 Ваш чек-лист «25 пунктов сезонного обслуживания» подготовлен.
             </p>
-            <a href="checklist-domsnab.pdf" download class="btn" style="display: block; width: 100%; text-decoration: none; padding: 12px; font-weight: bold; margin-bottom: 15px;">
-                💾 Нажмите для скачивания PDF (1.8 MB)
-            </a>
+           <a href="checklist-domsnab.pdf" download="Чек-лист_ДомСнаб_25_пунктов.pdf" class="btn" style="display: block; width: 100%; text-decoration: none; padding: 12px; font-weight: bold; margin-bottom: 15px;">
+    💾 Нажмите для скачивания PDF
+</a>
             <button onclick="closeLeadMagnetModal()" style="background: none; border: none; color: #6B7280; font-size: 13px; cursor: pointer; text-decoration: underline;">
                 Закрыть окно
             </button>
