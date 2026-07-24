@@ -301,7 +301,8 @@
                     <form id="leadForm" onsubmit="handleFormSubmit(event)">
                         <input type="hidden" id="hidden_quiz_results" name="quiz_summary" value="Тест не пройден">
                         <input type="hidden" id="hidden_chosen_gifts" name="selected_gifts" value="Чек-лист ТО">
-
+<!-- Поле-ловушка для Formspree (скрыто от пользователей) -->
+<input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
                         <!-- Выбор инженерных систем (чипсы / чекбоксы) -->
                         <div class="form-group">
                             <label style="font-weight: 600; font-size: 14px; margin-bottom: 8px; display: block;">
