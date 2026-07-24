@@ -9,22 +9,28 @@
 </head>
 <body>
 
-    <header>
-        <div class="container header-wrap" style="gap: 20px;">
-            <div style="display: flex; flex-direction: column; max-width: 50%;">
-                <a href="#" class="logo">Дом<span>Снаб</span></a>
-                <p id="cms-header-desc" style="font-size: 11px; line-height: 1.3; color: var(--text-muted); margin-top: 4px;"></p>
-            </div>
-            <div class="header-contacts">
-                <a href="#" id="cms-phone-header" class="phone-link"></a>
-                <div class="social-icons">
-                    <a href="#" id="cms-wa-header" class="social-icon icon-wa" target="_blank">WA</a>
-                    <a href="#" id="cms-tg-header" class="social-icon icon-tg" target="_blank">TG</a>
-                </div>
-                <a href="#order-form" class="btn">Заказать инженерный аудит дома</a>
+    <header class="header">
+    <div class="container header-container">
+        
+        <!-- Левый блок: Бренд + Компактное описание -->
+        <div class="header-info">
+            <a href="/" class="header-title" style="text-decoration: none; color: inherit;">ДомСнаб</a>
+            <p class="header-desc" id="cms-header-desc">
+                Служба главного инженера для домохозяйств МО. Поставки расходников, запчастей и ТО систем.
+            </p>
+        </div>
+
+        <!-- Правый блок: Крупный телефон и иконки -->
+        <div class="header-contacts">
+            <a href="tel:+79260822509" class="header-phone" id="cms-phone-header">+7 (926) 082-25-09</a>
+            <div class="header-socials">
+                <a href="https://wa.me/79260822509" id="cms-wa-header" target="_blank">WhatsApp</a>
+                <a href="https://t.me/scons2000" id="cms-tg-header" target="_blank">Telegram</a>
             </div>
         </div>
-    </header>
+
+    </div>
+</header>
 
     <section class="hero">
         <div class="container">
