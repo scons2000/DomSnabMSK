@@ -68,65 +68,116 @@ h2::after {
     transform: translateY(-2px);
 }
 
-header {
+/* ==========================================
+   ОБНОВЛЕННЫЕ СТИЛИ ШАПКИ (HEADER UI/UX)
+   ========================================== */
+header, .site-header {
     background-color: #FFFFFF;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-bottom: 1px solid #E2E8F0;
     position: sticky;
     top: 0;
     z-index: 1000;
+    padding: 12px 0;
 }
 
 .header-wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    gap: 20px;
 }
 
+/* Левая секция: Бренд + Описание */
+.header-brand-block {
+    display: flex;
+    flex-direction: column;
+    max-width: 440px;
+    flex: 1 1 auto;
+}
+
+/* Выразительный логотип */
 .logo {
     font-size: 24px;
     font-weight: 800;
-    color: var(--primary-bg);
+    color: #0F172A;
     text-decoration: none;
-    letter-spacing: 0.5px;
+    letter-spacing: -0.5px;
+    line-height: 1;
 }
 
-.logo span { color: var(--accent-color); }
+.logo span { 
+    color: var(--accent-color); 
+}
 
+/* Дескриптор службы под логотипом */
+.header-desc {
+    font-size: 11px;
+    line-height: 1.35;
+    color: #64748B;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+/* Правая секция: Телефон, соцсети, кнопка */
 .header-contacts {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.phone-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .phone-link {
     font-size: 18px;
-    font-weight: 700;
-    color: var(--primary-bg);
+    font-weight: 800;
+    color: #0F172A;
     text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s ease;
 }
 
-.social-icons { display: flex; gap: 10px; }
+.phone-link:hover {
+    color: var(--accent-color);
+}
+
+.social-icons { 
+    display: flex; 
+    gap: 6px; 
+    margin-top: 3px;
+}
 
 .social-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
+    padding: 2px 6px;
+    border-radius: 4px;
     color: #FFFFFF;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 10px;
     font-weight: bold;
 }
 
 .icon-wa { background-color: #25D366; }
 .icon-tg { background-color: #0088cc; }
 
+.header-cta-btn {
+    padding: 10px 16px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+/* ==========================================
+   ОСТАЛЬНЫЕ СЕКЦИИ
+   ========================================== */
 .hero {
     position: relative;
-    /* Накладываем плотный темный градиент слева-направо поверх вашей картинки */
     background: linear-gradient(90deg, 
                 rgba(15, 23, 42, 0.98) 0%, 
                 rgba(15, 23, 42, 0.90) 40%, 
@@ -140,20 +191,20 @@ header {
     overflow: hidden;
 }
 
-/* Стили для красивого выделения ключевых слов в заголовке */
 .hero h1 span.highlight {
     color: var(--accent-color);
     display: inline-block;
 }
 
 .hero p {
-    color: #E2E8F0; /* Чуть смягчаем белый цвет описания для премиального вида */
-    max-width: 600px; /* Ограничиваем ширину текста, чтобы он не заползал на кран */
+    color: #E2E8F0;
+    max-width: 600px;
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 30px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Дополнительная защита читаемости */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
+
 .hero-buttons {
     display: flex;
     justify-content: center;
@@ -346,6 +397,9 @@ footer { background-color: #11223B; color: #A0AEC0; padding: 40px 0; font-size: 
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* ==========================================
+   АДАПТИВНОСТЬ ДЛЯ ПЛАНШЕТОВ И СМАРТФОНОВ
+   ========================================== */
 @media (max-width: 1024px) {
     .grid-4, .grid-3, .grid-6 { grid-template-columns: repeat(2, 1fr); }
     .grid-5 { grid-template-columns: repeat(3, 1fr); }
@@ -355,13 +409,32 @@ footer { background-color: #11223B; color: #A0AEC0; padding: 40px 0; font-size: 
 @media (max-width: 768px) {
     h2 { font-size: 24px; }
     .hero h1 { font-size: 28px; }
-    .header-wrap .btn { display: none; }
+    
+    /* Скрываем личную кнопку и описание в шапке на мобильных */
+    .header-desc, 
+    .header-cta-btn { 
+        display: none !important; 
+    }
+
+    .header-wrap { 
+        gap: 10px; 
+    }
+
+    .logo { 
+        font-size: 20px; 
+    }
+
+    .phone-link { 
+        font-size: 15px; 
+    }
+
     .grid-4, .grid-3, .grid-5, .grid-6, .gifts-grid { grid-template-columns: 1fr; }
     .hero-buttons { flex-direction: column; gap: 10px; }
     .quiz-container, .form-side, .map-side { padding: 20px; }
     .footer-wrap { flex-direction: column; gap: 20px; text-align: center; }
     .footer-links a { margin: 0 10px; }
 }
+
 /* Mobile Sticky Bar Styles */
 .mobile-sticky-bar {
     display: none;
@@ -408,11 +481,10 @@ footer { background-color: #11223B; color: #A0AEC0; padding: 40px 0; font-size: 
     }
 
     .sticky-audit {
-        background: var(--primary-bg, #F7941D);
+        background: var(--accent-color, #F7941D);
         color: #FFFFFF;
     }
 
-    /* Отступ снизу для футера, чтобы плашка не перекрывала контент */
     body {
         padding-bottom: 60px;
     }
