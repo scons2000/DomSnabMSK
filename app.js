@@ -321,6 +321,7 @@ function handleFormSubmit(event) {
     // Формирование и отправка данных в Formspree
     sendDataToEmail({
         subject: "🔥 Новая заявка на Инженерный аудит (ДомСнаб)",
+        _gotcha: "", // Пустая строка сообщает Formspree, что это живой пользователь
         Имя: name,
         Телефон: phone,
         Локация: loc,
