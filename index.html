@@ -134,7 +134,85 @@
             </div>
         </div>
     </section>
+<!-- СЕКЦИЯ ЛИД-МАГНИТА (ЧЕК-ЛИСТ 25 ПУНКТОВ) -->
+<section class="lead-magnet-banner" style="background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); color: #FFFFFF; padding: 60px 0;">
+    <div class="container">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
+            
+            <div style="flex: 1; min-width: 300px;">
+                <span style="background: rgba(247, 148, 29, 0.2); color: var(--accent-color); padding: 4px 12px; font-size: 13px; font-weight: bold; border-radius: 20px; border: 1px solid var(--accent-color); text-transform: uppercase; letter-spacing: 0.5px;">
+                    Бесплатный гайд для владельцев
+                </span>
+                <h2 style="color: #FFFFFF !important; font-size: 30px; margin-top: 15px; margin-bottom: 15px; line-height: 1.2;">
+                    Скачайте чек-лист проверки инженерных систем дома перед сезоном (PDF)
+                </h2>
+                <p style="color: #94A3B8; font-size: 16px; line-height: 1.6; margin-bottom: 25px;">
+                    25 критических точек контроля: от давления в гидроаккумуляторе до подтяжки контактов в электрощитке. Проверьте готовность дома за 15 минут и избегайте дорогостоящих аварий.
+                </p>
+                <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+                    <button class="btn" onclick="openLeadMagnetModal()" style="font-weight: bold; padding: 15px 30px; font-size: 16px;">
+                        📥 Скачать чек-лист (PDF)
+                    </button>
+                    <span style="color: #64748B; font-size: 13px;">Размер файла: 1.8 МБ • Мгновенная загрузка</span>
+                </div>
+            </div>
 
+            <!-- Превью документа -->
+            <div style="flex: 0 0 280px; display: flex; justify-content: center;">
+                <div style="background: #FFFFFF; color: #1E293B; padding: 20px; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); transform: rotate(2deg); width: 100%; max-width: 260px; border: 2px solid #38BDF8;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #F1F5F9; padding-bottom: 10px; margin-bottom: 15px;">
+                        <strong style="font-size: 14px; color: var(--primary-bg);">ДомСнаб</strong>
+                        <span style="font-size: 10px; background: #E0F2FE; color: #0369A1; padding: 2px 6px; border-radius: 4px; font-weight: bold;">PDF GUIDE</span>
+                    </div>
+                    <div style="font-weight: bold; font-size: 13px; line-height: 1.3; margin-bottom: 10px;">
+                        ЧЕК-ЛИСТ: 25 пунктов сезонного обслуживания
+                    </div>
+                    <ul style="font-size: 11px; color: #64748B; padding-left: 15px; margin-bottom: 15px; line-height: 1.5;">
+                        <li>Водоснабжение и насосы (6)</li>
+                        <li>Канализация и септик (4)</li>
+                        <li>Отопление и котел (5)</li>
+                        <li>Электрика и щиток (5)</li>
+                        <li>Системы безопасности (4)</li>
+                    </ul>
+                    <div style="background: #F8FAFC; padding: 8px; border-radius: 6px; text-align: center; font-size: 11px; color: #0284C7; font-weight: bold;">
+                        ✓ Сохраните ваш дом в безопасности
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- МОДАЛЬНОЕ ОКНО ДЛЯ СКАЧИВАНИЯ СБОРА ЛИДОВ -->
+<div id="leadMagnetModal" style="display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
+    <div style="background: #FFFFFF; max-width: 450px; width: 100%; padding: 30px; border-radius: 12px; position: relative; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
+        <button onclick="closeLeadMagnetModal()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 22px; cursor: pointer; color: #9CA3AF;">&times;</button>
+        
+        <h3 style="margin-top: 0; margin-bottom: 10px; color: #111827; font-size: 20px;">Куда отправить PDF чек-лист?</h3>
+        <p style="font-size: 14px; color: #4B5563; margin-bottom: 20px; line-height: 1.4;">
+            Укажите ваши контакты — мы сразу откроем доступ к скачиванию файла и закрепим за вами индивидуальную консультацию инженера.
+        </p>
+
+        <form id="lmForm" onsubmit="handleLMSubmit(event)">
+            <div class="form-group" style="margin-bottom: 12px;">
+                <label style="font-size: 12px; font-weight: 600; color: #374151; display: block; margin-bottom: 4px;">Ваше имя *</label>
+                <input type="text" id="lm_name" class="form-control" placeholder="Иван" required style="width: 100%; padding: 10px; border: 1px solid #D1D5DB; border-radius: 6px;">
+            </div>
+            <div class="form-group" style="margin-bottom: 12px;">
+                <label style="font-size: 12px; font-weight: 600; color: #374151; display: block; margin-bottom: 4px;">Телефон (для SMS с ссылкой) *</label>
+                <input type="tel" id="lm_phone" class="form-control" placeholder="+7 (926) 000-00-00" required style="width: 100%; padding: 10px; border: 1px solid #D1D5DB; border-radius: 6px;">
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label style="font-size: 12px; font-weight: 600; color: #374151; display: block; margin-bottom: 4px;">Email (опционально)</label>
+                <input type="email" id="lm_email" class="form-control" placeholder="example@mail.ru" style="width: 100%; padding: 10px; border: 1px solid #D1D5DB; border-radius: 6px;">
+            </div>
+            <button type="submit" class="btn" style="width: 100%; font-weight: bold; padding: 12px;">
+                Скачать PDF прямо сейчас
+            </button>
+        </form>
+    </div>
+</div>
     <section class="gifts-section" style="background-color: #FFFDF5; border-top: 1px solid #FFE4C4; border-bottom: 1px solid #FFE4C4; padding: 60px 0;">
         <div class="container" style="max-width: 650px;">
             <h2 id="cms-gifts-deadline" style="color: #111827 !important; text-align: center; margin-bottom: 15px; font-size: 26px;">
