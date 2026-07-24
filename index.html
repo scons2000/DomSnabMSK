@@ -21,7 +21,7 @@
                     <a href="#" id="cms-wa-header" class="social-icon icon-wa" target="_blank">WA</a>
                     <a href="#" id="cms-tg-header" class="social-icon icon-tg" target="_blank">TG</a>
                 </div>
-                <a href="#order-form" class="btn">Записаться на аудит</a>
+                <a href="#order-form" class="btn">Заказать инженерный аудит дома</a>
             </div>
         </div>
     </header>
@@ -32,7 +32,7 @@
             <p id="cms-hero-desc"></p>
             <div class="hero-buttons">
                 <a href="#quiz" class="btn">Найти скрытые поломки в доме</a>
-                <a href="#order-form" class="btn btn-secondary">Заказать аудит</a>
+                <a href="#order-form" class="btn btn-secondary" id="cms-hero-cta">Заказать инженерный аудит дома</a>
             </div>
         </div>
     </section>
@@ -54,7 +54,7 @@
         </div>
     </section>
 
-    <!-- Цифровой паспорт дома (Перепозиционирован) -->
+    <!-- Цифровой паспорт дома -->
     <section class="bg-grey">
         <div class="container">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; wrap: wrap; margin-bottom: 30px;">
@@ -169,38 +169,58 @@
         </div>
     </section>
 
+    <!-- СЕКЦИЯ С ФОРМОЙ ЗАЯВКИ И КАРТОЙ -->
     <section id="order-form" class="main-form-section">
         <div class="container">
             <div class="form-map-wrap">
                 <div class="form-side">
-                    <h3 id="cms-form-title"></h3>
+                    <h3 id="cms-form-title">Запись на инженерный аудит дома</h3>
+                    <p id="cms-form-subtitle" style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.4;"></p>
+                    
                     <form id="leadForm" onsubmit="handleFormSubmit(event)">
                         <input type="hidden" id="hidden_quiz_results" name="quiz_summary" value="Тест не пройден">
                         <input type="hidden" id="hidden_chosen_gifts" name="selected_gifts" value="Чек-лист ТО">
+
+                        <!-- Выбор инженерных систем (чипсы / чекбоксы) -->
                         <div class="form-group">
-                            <label for="username">Ваше имя</label>
+                            <label style="font-weight: 600; font-size: 14px; margin-bottom: 8px; display: block;">
+                                Какие инженерные системы беспокоят или требуют проверки?
+                            </label>
+                            <div id="cms-audit-systems-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;">
+                                <!-- Заполняется динамически из cms-config.js через app.js -->
+                            </div>
+                        </div>
+
+                        <!-- Поля ввода с минимальным трением -->
+                        <div class="form-group" style="margin-top: 15px;">
+                            <label for="username">Ваше имя *</label>
                             <input type="text" id="username" class="form-control" placeholder="Например: Евгений" required>
                         </div>
                         <div class="form-group">
-                            <label for="userphone">Номер телефона</label>
+                            <label for="userphone">Номер телефона *</label>
                             <input type="tel" id="userphone" class="form-control" placeholder="+7 (926) 000-00-00" required>
                         </div>
                         <div class="form-group">
-                            <label for="location">Ваш населённый пункт</label>
-                            <select id="location" class="form-control" required>
-                                <option value="" disabled selected>Выберите посёлок</option>
-                            </select>
+                            <label for="location">Посёлок / Адрес дома (для расчета выезда)</label>
+                            <div style="display: flex; gap: 10px;">
+                                <select id="location" class="form-control" style="flex: 1;">
+                                    <option value="" disabled selected>Выберите посёлок</option>
+                                </select>
+                                <input type="text" id="custom_address" class="form-control" placeholder="или введите вручную" style="flex: 1;">
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="comment">Комментарий (необязательно)</label>
-                            <textarea id="comment" class="form-control" rows="2" placeholder="Удобное время для звонка или детали поломки"></textarea>
+                            <textarea id="comment" class="form-control" rows="2" placeholder="Удобное время для звонка или подробности"></textarea>
                         </div>
                         <div class="form-group">
-                            <label class="checkbox-label">
+                            <label class="checkbox-label" style="font-size: 12px; color: #6B7280;">
                                 <input type="checkbox" required checked> Я соглашаюсь на обработку персональных данных
                             </label>
                         </div>
-                        <button type="submit" class="btn" style="width: 100%;">Пригласить главного инженера</button>
+                        <button type="submit" id="cms-form-btn" class="btn" style="width: 100%; font-weight: bold; padding: 14px;">
+                            Заказать инженерный аудит дома
+                        </button>
                     </form>
                 </div>
 
