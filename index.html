@@ -9,25 +9,29 @@
 </head>
 <body>
 
-    <header class="header">
-    <div class="container header-container">
+   <header class="site-header">
+    <div class="container header-wrap">
         
-        <!-- Левый блок: Бренд + Компактное описание -->
-        <div class="header-info">
-            <a href="/" class="header-title" style="text-decoration: none; color: inherit;">ДомСнаб</a>
-            <p class="header-desc" id="cms-header-desc">
-                Служба главного инженера для домохозяйств МО. Поставки расходников, запчастей и ТО систем.
-            </p>
+        <!-- Левый блок: Узнаваемый бренд + компактное описание -->
+        <div class="header-brand-block">
+            <a href="#" class="logo">Дом<span>Снаб</span></a>
+            <p id="cms-header-desc" class="header-desc"></p>
         </div>
 
-        <!-- Правый блок: Крупный телефон и иконки -->
+        <!-- Правый блок: Выделенный телефон, соцсети и кнопка -->
         <div class="header-contacts">
-            <a href="tel:+79260822509" class="header-phone" id="cms-phone-header">+7 (926) 082-25-09</a>
-            <div class="header-socials">
-                <a href="https://wa.me/79260822509" id="cms-wa-header" target="_blank">WhatsApp</a>
-                <a href="https://t.me/scons2000" id="cms-tg-header" target="_blank">Telegram</a>
+            <div class="phone-group">
+                <a href="tel:+79260822509" id="cms-phone-header" class="phone-link">+7 (926) 082-25-09</a>
+                <div class="social-icons">
+                    <a href="https://wa.me/79260822509" id="cms-wa-header" class="social-icon icon-wa" target="_blank" title="WhatsApp">WA</a>
+                    <a href="https://t.me/scons2000" id="cms-tg-header" class="social-icon icon-tg" target="_blank" title="Telegram">TG</a>
+                </div>
             </div>
+            <a href="#order-form" class="btn header-cta-btn">Заказать аудит</a>
         </div>
+
+    </div>
+</header>
 
     </div>
 </header>
