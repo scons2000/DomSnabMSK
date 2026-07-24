@@ -339,3 +339,50 @@ function handleGiftSelection(checkbox) {
 
     document.getElementById('hidden_chosen_gifts').value = selectedList.join(', ');
 }
+// Логика управления модальным окном Лид-Магнита
+function openLeadMagnetModal() {
+    const modal = document.getElementById('leadMagnetModal');
+    if (modal) modal.style.display = 'flex';
+}
+
+function closeLeadMagnetModal() {
+    const modal = document.getElementById('leadMagnetModal');
+    if (modal) modal.style.display = 'none';
+}
+
+// Закрытие модального окна по клику вне его области
+window.addEventListener('click', (e) => {
+    const modal = document.getElementById('leadMagnetModal');
+    if (e.target === modal) {
+        closeLeadMagnetModal();
+    }
+});
+
+// Обработка отправки контактов за лид-магнит
+function handleLMSubmit(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('lm_name').value;
+    const phone = document.getElementById('lm_phone').value;
+    const email = document.getElementById('lm_email').value || 'Не указан';
+
+    console.log("Новый лид на скачивание чек-листа:", { name, phone, email, source: "Лид-магнит PDF 25 пунктов" });
+
+    // Имитация мгновенной выдачи файла / скачивания
+    const modalContent = document.querySelector('#leadMagnetModal > div');
+    modalContent.innerHTML = `
+        <div style="text-align: center; padding: 20px 10px;">
+            <span style="font-size: 48px; display: block; margin-bottom: 15px;">✅</span>
+            <h3 style="color: #111827; margin-bottom: 10px;">Готово, ${name}!</h3>
+            <p style="font-size: 14px; color: #4B5563; margin-bottom: 20px;">
+                Ваш чек-лист «25 пунктов сезонного обслуживания» подготовлен.
+            </p>
+            <a href="checklist-domsnab.pdf" download class="btn" style="display: block; width: 100%; text-decoration: none; padding: 12px; font-weight: bold; margin-bottom: 15px;">
+                💾 Нажмите для скачивания PDF (1.8 MB)
+            </a>
+            <button onclick="closeLeadMagnetModal()" style="background: none; border: none; color: #6B7280; font-size: 13px; cursor: pointer; text-decoration: underline;">
+                Закрыть окно
+            </button>
+        </div>
+    `;
+}
