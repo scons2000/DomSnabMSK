@@ -5,6 +5,31 @@ document.addEventListener("DOMContentLoaded", () => {
     setupQuizLogic();
 });
 
+// Единый URL для отправки писем на team@sconsulting.ru через Formspree
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xykrnooa";
+
+// Универсальная функция отправки данных на почту
+async function sendDataToEmail(data) {
+    try {
+        const response = await fetch(FORMSPREE_ENDPOINT, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+        
+        if (response.ok) {
+            console.log("Заявка успешно доставлена на team@sconsulting.ru");
+        } else {
+            console.error("Ошибка при отправке заявки в Formspree:", await response.json());
+        }
+    } catch (error) {
+        console.error("Сетевая ошибка при отправке почты:", error);
+    }
+}
+
 // 1. Инициализация контента из CMS
 function initCMSData() {
     // Контакты
@@ -271,7 +296,7 @@ function setupQuizLogic() {
     });
 }
 
-// 4. Валидация и обработка лид-формы (Этап 1 Шаг 2)
+// 4. Валидация и обработка лид-формы (Отправка на почту)
 function handleFormSubmit(event) {
     event.preventDefault();
     
@@ -293,14 +318,16 @@ function handleFormSubmit(event) {
     const quizResults = document.getElementById('hidden_quiz_results').value;
     const selectedGifts = document.getElementById('hidden_chosen_gifts').value;
 
-    console.log("Пакет данных для отправки заявки на аудит:", { 
-        name, 
-        phone, 
-        location: loc, 
-        systems: systemsListText, 
-        comment, 
-        quizResults,
-        selectedGifts
+    // Формирование и отправка данных в Formspree
+    sendDataToEmail({
+        subject: "🔥 Новая заявка на Инженерный аудит (ДомСнаб)",
+        Имя: name,
+        Телефон: phone,
+        Локация: loc,
+        "Проверяемые системы": systemsListText,
+        Комментарий: comment,
+        "Результаты квиза": quizResults || "Квиз не проходил",
+        "Выбранные подарки": selectedGifts || "Чек-лист ТО"
     });
 
     const formSide = document.querySelector('.form-side');
@@ -319,7 +346,7 @@ function handleFormSubmit(event) {
     `;
 }
 
-// Функция отслеживания выбранных подарков (для чекбоксов, если используются)
+// Функция отслеживания выбранных подарков
 function handleGiftSelection(checkbox) {
     const card = checkbox.closest('.gift-card-select');
     if (checkbox.checked) {
@@ -339,6 +366,7 @@ function handleGiftSelection(checkbox) {
 
     document.getElementById('hidden_chosen_gifts').value = selectedList.join(', ');
 }
+
 // Логика управления модальным окном Лид-Магнита
 function openLeadMagnetModal() {
     const modal = document.getElementById('leadMagnetModal');
@@ -366,9 +394,14 @@ function handleLMSubmit(event) {
     const phone = document.getElementById('lm_phone').value;
     const email = document.getElementById('lm_email').value || 'Не указан';
 
-    console.log("Новый лид на скачивание чек-листа:", { name, phone, email, source: "Лид-магнит PDF 25 пунктов" });
+    // Отправка данных скачивания чек-листа в Formspree
+    sendDataToEmail({
+        subject: "📥 Скачивание чек-листа (Лид-магнит 25 пунктов)",
+        Имя: name,
+        Телефон: phone,
+        Email: email
+    });
 
-    // Имитация мгновенной выдачи файла / скачивания
     const modalContent = document.querySelector('#leadMagnetModal > div');
     modalContent.innerHTML = `
         <div style="text-align: center; padding: 20px 10px;">
@@ -377,9 +410,9 @@ function handleLMSubmit(event) {
             <p style="font-size: 14px; color: #4B5563; margin-bottom: 20px;">
                 Ваш чек-лист «25 пунктов сезонного обслуживания» подготовлен.
             </p>
-           <a href="checklist-domsnab.pdf" download="Чек-лист_ДомСнаб_25_пунктов.pdf" class="btn" style="display: block; width: 100%; text-decoration: none; padding: 12px; font-weight: bold; margin-bottom: 15px;">
-    💾 Нажмите для скачивания PDF
-</a>
+            <a href="checklist-domsnab.pdf" download="Чек-лист_ДомСнаб_25_пунктов.pdf" class="btn" style="display: block; width: 100%; text-decoration: none; padding: 12px; font-weight: bold; margin-bottom: 15px;">
+                💾 Нажмите для скачивания PDF
+            </a>
             <button onclick="closeLeadMagnetModal()" style="background: none; border: none; color: #6B7280; font-size: 13px; cursor: pointer; text-decoration: underline;">
                 Закрыть окно
             </button>
