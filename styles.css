@@ -362,3 +362,58 @@ footer { background-color: #11223B; color: #A0AEC0; padding: 40px 0; font-size: 
     .footer-wrap { flex-direction: column; gap: 20px; text-align: center; }
     .footer-links a { margin: 0 10px; }
 }
+/* Mobile Sticky Bar Styles */
+.mobile-sticky-bar {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-sticky-bar {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #FFFFFF;
+        box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.12);
+        z-index: 999;
+        padding: 8px 10px;
+        gap: 8px;
+        box-sizing: border-box;
+        border-top: 1px solid #E5E7EB;
+    }
+
+    .sticky-btn {
+        flex: 1;
+        text-align: center;
+        padding: 10px 4px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: bold;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.2s;
+    }
+
+    .sticky-call {
+        background: #F3F4F6;
+        color: #1F2937;
+    }
+
+    .sticky-tg {
+        background: #0088cc;
+        color: #FFFFFF;
+    }
+
+    .sticky-audit {
+        background: var(--primary-bg, #F7941D);
+        color: #FFFFFF;
+    }
+
+    /* Отступ снизу для футера, чтобы плашка не перекрывала контент */
+    body {
+        padding-bottom: 60px;
+    }
+}
